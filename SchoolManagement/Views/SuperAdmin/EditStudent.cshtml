@@ -1,0 +1,445 @@
+﻿@model SchoolManagement.Models.StudentViewModel
+@using CaptchaMvc.HtmlHelpers
+@{ ViewBag.Title = "Student Info";
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml"; }
+
+
+
+
+<h4 class="page-header">Edit Student Information</h4>
+
+<div class="panel panel-default">
+
+    <div class="panel-body">
+
+        @if (TempData["MessageRegistration"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["MessageRegistration"]</p>}
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @using (Html.BeginForm("EditStudent", "SuperAdmin", FormMethod.Post, new { autocomplete = "off", enctype = "multipart/form-data", id = "formD" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="clearfix"></div>
+                <div class="col-lg-4">
+                    <table style="margin-bottom: 21px;">
+                        <tr>
+                            <td style="width:40%">
+                                @Html.Label("Username", "Username : ", htmlAttributes: new { @class = "control-label" })
+                            </td>
+                            <td style="width:40%">
+                                <label style="font-weight: 100;"> @Html.DisplayFor(model => model.Username)</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.HiddenFor(model => model.RegistrationID, new { id = "hdnRegistrationID" })
+                    @Html.HiddenFor(model => model.RoleID)
+                    @Html.HiddenFor(model => model.StudentClassID)
+                    @*@Html.HiddenFor(model => model.DateofJoining)*@
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label manadatory" })
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @maxlength = 40, @onkeypress = "return onlyspecchar(event);" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.Mobileno, htmlAttributes: new { @class = "control-label manadatory" })
+                    @Html.TextBoxFor(model => model.Mobileno, new { @class = "form-control", @maxlength = 10, @onkeydown = "return OnlyNumeric(this);" })
+                    @Html.ValidationMessageFor(model => model.Mobileno, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.Birthdate, htmlAttributes: new { @class = "control-label manadatory" })
+                    @Html.TextBoxFor(model => model.Birthdate, "{0:dd-MM-yyyy}", new { @class = "form-control", @onkeypress = "alert('Choose Birthdate');" })
+                    @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="clearfix"></div>
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.FatherName, htmlAttributes: new { @class = "control-label manadatory" })
+                    @Html.TextBoxFor(model => model.FatherName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.MotherName, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.MotherName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger" })
+                </div>
+                @if (Model.CurrentClassID == Model.StudentClassID)
+                {
+                    <div class="col-lg-4">
+                        @Html.LabelFor(model => model.DateofJoining, htmlAttributes: new { @class = "control-label manadatory" })
+                        @Html.TextBoxFor(model => model.DateofJoining, "{0:dd-MM-yyyy}", new { id = "txtDateofJoining", @class = "form-control", @onkeypress = "alert('Choose DateofJoining');", @onchange = "CheckSessionList();" })
+                        @Html.ValidationMessageFor(model => model.DateofJoining, "", new { @class = "text-danger" })
+                    </div>
+                }
+                else
+                {
+                    <div class="col-lg-4" style="margin-top:10px;">
+
+                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label manadatory" })
+                        <br />
+                        @Html.RadioButtonFor(model => model.Gender, "M") @Html.Label("", "Male")
+                        @Html.RadioButtonFor(model => model.Gender, "F") @Html.Label("", "Female")
+                        <br />
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    </div>
+                }
+            </div>
+            <div class="row">
+                <div class="clearfix"></div>
+                <div class="col-lg-4">
+
+                    @if (Model.CurrentClassID == Model.StudentClassID)
+                    {
+                        @Html.LabelFor(model => model.StudentClassID, htmlAttributes: new { @class = "control-label manadatory" })
+                        @Html.DropDownListFor(model => model.StudentClassID, new SelectList(Model.ListofClass, "Value", "Text"), "Select", new { id = "ddlClass", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.StudentClassID, "", new { @class = "text-danger" })
+                    }
+                    else
+                    {
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+                        @Html.TextAreaFor(model => model.Address, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    }
+                </div>
+                @if (Model.CurrentClassID == Model.StudentClassID)
+                {
+                    <div class="col-lg-4" style="margin-top:10px;">
+
+                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label manadatory" })
+                        <br />
+                        @Html.RadioButtonFor(model => model.Gender, "M") @Html.Label("", "Male")
+                        @Html.RadioButtonFor(model => model.Gender, "F") @Html.Label("", "Female")
+                        <br />
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-lg-4">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+                        @Html.TextAreaFor(model => model.Address, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                }
+            </div>
+            @*<div class="row">
+                @if (Model.CurrentClassID == Model.StudentClassID)
+                {
+                    <div class="row">
+                        <div class="col-lg-3">
+                        </div>
+                        <div class="col-lg-7">
+
+                        </div>
+                        <div class="col-lg-2">
+
+                            <input type="button" id="btnPromotion" value="Promotion" class="btn btn-secondary" />
+                        </div>
+                    </div>
+                }
+            </div>*@
+            <div class="row" style="padding-top:11px">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Documents</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                @Html.DropDownList("Doctype", new SelectList((System.Collections.IEnumerable)ViewData["DocumentType"], "Value", "Text"), "Select", new { @class = "form-control" })
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="mb-3">
+
+                                    <input type="file" id="FileUpload1" class="form-control" />
+
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+
+                                <input type="button" id="btnUpload" value="Upload Files" class="btn btn-secondary" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <table id="myTable" data-role="table" data-mode="columntoggle" class="table table-bordered dt-responsive nowrap" style="width: 60%;">
+                <thead>
+
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="myTableBody">
+                </tbody>
+            </table>
+            <br />
+            <div class="row">
+                <div class="col-lg-4">
+                    <input type="submit"  id="btnSubmitForm" value="Save" class="btn btn-success" />
+                    @*@Html.ActionLink("Clear", "Registration", "Registration", null, new { @class = "btn btn-danger" })*@
+
+                    @Html.ActionLink("All Users", "Users", "AllUsers", null, new { @class = "btn btn-info" })
+
+                </div>
+            </div>}
+
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/dataTablesScripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTablesScripts/dataTables.bootstrap4.min.js"></script>
+<link href="~/Scripts/datetimepicker/jqueryui.css" rel="stylesheet" />
+<script src="~/Scripts/datetimepicker/jqueryui.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#btnUpload').click(function () {
+            debugger;
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+                if ($("#Doctype").val() == "") {
+                    alert("Select Document Type");
+                    return false;
+                }
+                var fileUpload = $("#FileUpload1").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+                fileData.append('DoctypeName', $("#Doctype").val());
+                fileData.append('hdnRegistrationID', $("#hdnRegistrationID").val());
+                fileData.append('hdnUserName', $("#hdnUserName").val());
+
+                $.ajax({
+                    url: '/SuperAdmin/UploadFiles',
+                    type: "POST",
+                    //dataType: 'JSON',
+                    //async: false,
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                        //alert(result);
+                        if (result.Status == "1") {
+                            //location.reload();
+                            UserDoduments();
+                            alert(result.Result);
+                        }
+                        else {
+                            alert(result.Result);
+                        }
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+        $('#btnSessionDetClose').click(function () {
+            //$(':input[type="submit"]').prop('disabled', true);
+            $("#btnSubmitForm").attr('disabled', true);
+        });
+    });
+
+    function CheckSessionList() {
+
+        var url = '@Url.Content("~/")' + "AllUsers/CheckAdmissionSessionInfo";
+        $.ajax({
+            type: "POST",
+            url: url,
+            //data: fileData,
+            data: '{ RegistrationID: "' + $("#hdnRegistrationID").val() + '", AdmDate: "' + $("#txtDateofJoining").val() + '", Class: "' + $("#ddlClass").val() + '"}',
+            contentType: "application/json; charset=utf-8",
+            //dataType: "json",
+            success: function (response) {
+                $("#btnSubmitForm").attr('disabled', false);
+                if (response.Status === undefined) {
+                    $('#contentBody').html(response);
+                    $('#myModal').modal('show');
+                }
+                else {
+                    if (response.Status == "True") {
+                        alert(response.Message);
+                    }
+
+                }
+                
+
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        UserDoduments();
+        CheckSessionList();
+        $("#Birthdate").datepicker
+            ({
+                /*dateFormat: "yy-mm-dd",*/
+                dateFormat: "dd-mm-yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-100:+100",
+                onSelect: function (date) {
+                    var input = date.split("-");
+                    var dob = new Date(input[2] + "-" + input[1] + "-" + input[0]);
+                    var today = new Date();
+
+                    if (dob.getFullYear() + 30 > today.getFullYear()) {
+                    }
+                    else {
+                        $("#Birthdate").val('');
+                        alert("You are not eligible for Registration");
+                    }
+                }
+            });
+
+        $("#txtDateofJoining").datepicker
+            ({
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-3:+1",
+            });
+
+    });
+
+    function OnlyNumeric(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        if ((charCode < 48 || charCode > 57)) {
+            if (charCode == 8 || charCode == 46 || charCode == 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+
+    function onlyspecchar(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        var txt = String.fromCharCode(charCode)
+        if ((txt.match(/^[a-zA-Z\b. ]+$/)) || (txt.match(/^[0-9]+$/)) || (charCode == 64) || (charCode == 45) || (charCode == 46) || (charCode == 95) || (charCode == 41)) {
+            return true;
+        }
+        return false;
+    }
+    function DeleteUser() {
+        var userid = $("#hdnRegistrationID").val();
+        $.ajax({
+            type: 'GET',
+            url: '/SuperAdmin/DeleteUser',
+            dataType: 'json',
+            data: { ID: userid },
+            success: function (jsonData) {
+                if (jsonData.Status == "1") {
+                    alert(jsonData.Result);
+                    var url = "/AllUsers/admin";
+                    window.location.href = url;
+                }
+                else {
+                    alert(jsonData.Result);
+                }
+            },
+            error: function () {
+                console.log('something went wrong - debug it!');
+            }
+        });
+    }
+
+
+    function DeleteUserDoc(ID) {
+        var url = "/SuperAdmin/DeleteFiles";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: '{DocumentID: "' + ID + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                alert(response);
+            },
+            failure: function (response) {
+                alert(response);
+            },
+            error: function (response) {
+                alert(response);
+            }
+        });
+    }
+
+    function UserDoduments() {
+        var userid = $("#hdnRegistrationID").val();
+        $.ajax({
+            type: 'GET',
+            url: '/SuperAdmin/GetUserDocuments',
+            dataType: 'json',
+            data: { UserID: userid },
+            success: function (jsonData) {
+                var rows = '';
+
+                if ($(jsonData.userDocs).length == 0) {
+                    $("#myTable").hide();
+                } else {
+                    $("#myTable").show();
+                    $.each(jsonData.userDocs, function (i, Doc) {
+                        rows += "<tr><td style='widith: 20%;'>" + Doc.DocumentTypeName + "</td><td style='widith: 50%;'>" + Doc.DocumentName + ' ' +
+                            "</td><td style='widith: 30%;'><a href=" + Doc.DocumentPath + " target='_blank'>view </a> | <a href='#' onclick=DeleteUserDoc('" +
+                            Doc.DocumentID + "'); >delete</a></td></tr>";
+                    });
+                    $("#myTableBody").empty();
+                    $('#myTableBody').append(rows);
+                }
+
+            },
+            error: function () {
+                console.log('something went wrong - debug it!');
+            }
+        });
+    }
+</script>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                <h4 class="modal-title">User Detail</h4>
+            </div>
+            <div class="modal-body" id="contentBody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button"  id="btnSessionDetClose" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

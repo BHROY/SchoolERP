@@ -1,0 +1,81 @@
+﻿
+@model SchoolManagement.Models.SubjectPerformanceViewModel
+<div class="panel panel-default">
+
+    <div class="panel-body">
+        @using (Ajax.BeginForm("UpdateSessionExam", "SubjectPerformances", null, new AjaxOptions
+        {
+            HttpMethod = "POST",
+            OnSuccess = "OnSuccess",
+
+        }, new { id = "progForm" }))
+        {
+            @*@using (Html.BeginForm("UpdateSessionExam", "SubjectPerformances", FormMethod.Post, new { autocomplete = "off", enctype = "multipart/form-data", id = "formD" }))
+    {*@
+                        <div class="row">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        @Html.LabelFor(model => model.SessionID, htmlAttributes: new { @class = "control-label" })
+                                        @Html.HiddenFor(model => model.SessionID)
+                                        @Html.HiddenFor(model => model.SessionName)
+                                    </td>
+                                    <td> @Html.DisplayFor(model => model.SessionName)</td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.LabelFor(model => model.ExamTypeID, htmlAttributes: new { @class = "control-label" })
+                                        @Html.HiddenFor(model => model.ExamTypeID)
+                                    </td>
+                                    <td> @Html.DisplayFor(model => model.ExamTypeName)</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.LabelFor(model => model.SubjectID, htmlAttributes: new { @class = "control-label" })
+                                        @Html.HiddenFor(model => model.SubjectID)
+                                        @Html.HiddenFor(model => model.SubjectName)
+                                    </td>
+                                    <td> @Html.DisplayFor(model => model.SubjectName)</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.LabelFor(model => model.ClassID, htmlAttributes: new { @class = "control-label" })
+                                        @Html.HiddenFor(model => model.ClassID)
+                                        @Html.HiddenFor(model => model.ClassName)
+                                    </td>
+                                    <td> @Html.DisplayFor(model => model.ClassName)</td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.LabelFor(model => model.TotalMarks, htmlAttributes: new { @class = "control-label" })</td>
+                                    <td>@Html.TextBoxFor(model => model.TotalMarks, new { id = "txtTotalMarks", @class = "form-control" })</td>
+                                </tr>
+                            </table>
+                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <input type="submit" value="Save" class="btn btn-success" />
+                                            </div>
+                                        </div>
+        }
+    </div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        $('#txtTotalMarks').on("change", function () {
+            if ($.isNumeric($("#txtTotalMarks").val()) == true) {
+                var totalM = parseInt($("#txtTotalMarks").val());
+                if (totalM < 6) {
+                    $('#txtTotalMarks').val(0);
+                    alert('Total marks must be greater than 5');
+                }
+            }
+            else {
+                $('#txtTotalMarks').val(0);
+                alert('Enter numbers only');
+            }
+
+        });
+    });
+</script>

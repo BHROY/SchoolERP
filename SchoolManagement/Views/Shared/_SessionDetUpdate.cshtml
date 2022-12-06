@@ -1,0 +1,54 @@
+﻿
+@model SchoolManagement.Models.StudentViewModel
+<div class="panel panel-default">
+   
+        <div class="panel-heading">Student Promotional Details</div>
+        <div class="panel-body">
+            @using (Html.BeginForm("UpdateStudentSession", "SuperAdmin", FormMethod.Post, new { autocomplete = "off", enctype = "multipart/form-data", id = "formD" }))
+            {
+            <div class="row">
+                @Html.HiddenFor(model => model.DateofJoining, new { id = "hdnDateOfAdm" })
+                @Html.HiddenFor(model => model.StudentClassID, new { id = "hdnClassID" })
+                <table class="table">
+                    @for (var themeIndex = 0; themeIndex < Model.ListofSubDropDown.Count(); themeIndex++)
+                    {
+                    <tr>
+                        @if (Model.ListofSubDropDown[themeIndex].Value == Model.CurrentSessionID)
+                        {
+                        <td style="display:none;">
+                            @Html.RadioButtonFor(model => model.ListofSubDropDown[themeIndex].PromotionalStatus, Model.ListofSubDropDown[themeIndex].ListofPromotionalStatus[1].Value, new { @checked = "checked" })
+                        </td>
+                        }
+                        else
+                        {
+                        <td>@Html.DisplayFor(model => model.ListofSubDropDown[themeIndex].Text)</td>
+                        <td>
+                            @for (var PromotionIndex = 0; PromotionIndex < Model.ListofSubDropDown[themeIndex].ListofPromotionalStatus.Count(); PromotionIndex++)
+                            {
+
+                                if (PromotionIndex == 0)
+                                {
+                    @Html.RadioButtonFor(model => model.ListofSubDropDown[themeIndex].PromotionalStatus, Model.ListofSubDropDown[themeIndex].ListofPromotionalStatus[PromotionIndex].Value, new { @checked = "checked" }) }
+
+                                else
+                                {<span>  &nbsp;&nbsp; </span>
+                                                @Html.RadioButtonFor(model => model.ListofSubDropDown[themeIndex].PromotionalStatus, Model.ListofSubDropDown[themeIndex].ListofPromotionalStatus[PromotionIndex].Value)}
+                    <span>   </span> @Html.DisplayFor(model => model.ListofSubDropDown[themeIndex].ListofPromotionalStatus[PromotionIndex].Text) @Html.Raw("&nbsp;");
+                            }
+                        </td>
+                        }
+                    </tr>
+}
+
+                </table>
+            </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <input type="submit" value="Save" class="btn btn-success" />
+                                                    </div>
+                                                </div>
+            }
+                                                            </div>
+            
+    </div>
+

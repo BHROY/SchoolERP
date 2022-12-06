@@ -1,0 +1,370 @@
+﻿@model SchoolManagement.Models.SubjectPerformanceViewModel
+
+@{
+    ViewBag.Title = "Add Result";
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+}
+
+<style>
+    .dataTables_wrapper div.dataTables_filter input {
+        width: 72% !important;
+    }
+
+    .trackInput {
+        width: 50% !important;
+    }
+
+    .modal-lg {
+        width: 25%;
+    }
+
+    .panel-body {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 0px;
+    }
+</style>
+<h2>Add Result</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row" style="padding-top:2%">
+        <div class="col-sm-1 text-right" style=" width: 12%">
+            @Html.LabelFor(model => model.ExamTypeID, htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-lg-2 text-left">
+            @Html.DropDownListFor(model => model.ExamTypeID, new SelectList(Model.ListofExamType, "Value", "Text"), "Select", new { id = "ddlExamType", @class = "form-control" })
+        </div>
+        <div class="col-sm-1 text-right">
+            @Html.LabelFor(model => model.ClassID, htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-lg-2 text-left">
+            @Html.DropDownListFor(model => model.ClassID, new SelectList(Model.ListofClass, "Value", "Text"), "Select", new { id = "ddlClass", @class = "form-control" })
+        </div>
+        <div class="col-lg-1 text-right">
+            @Html.LabelFor(model => model.SubjectID, htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-lg-2 text-left">
+            @Html.DropDownListFor(model => model.SubjectID, new SelectList(Model.ListofSubjects, "Value", "Text"), "Select", new { id = "ddlSubject", @class = "form-control" })
+        </div>
+        <div class="col-lg-2 text-center">
+            <input type="button" id="btnSearch" value="Search" class="btn btn-secondary" style="padding-top:2%;" />
+            <input type="button" id="btnClear" value="Clear" class="btn btn-danger" style="padding-top:2%;" />
+        </div>
+    </div>
+}
+
+
+<link href="~/Scripts/dataTablesScripts/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Scripts/dataTablesScripts/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/dataTablesScripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTablesScripts/dataTables.bootstrap4.min.js"></script>
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+
+<div class="row">
+    <div class="col-lg-12" id="divPerformanceTable" style="width:48%;padding-top:2%">
+        <div class="row" style="padding-top:2%">
+            <div class="col-sm-1 text-right" style=" width: 80%">
+                @Html.Label("Total Marks :", htmlAttributes: new { @class = "control-label" })
+                @Html.Hidden("SessionExamID", "", new { @id = "hdnSessionExamID" })
+                @Html.Hidden("SessionExamID", "", new { @id = "hdnTotalMarks" })
+            </div>
+            <div class="col-lg-2 text-left" id="divTotalmarks">
+                <span></span>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" style="height: 45px;">
+                <div class="col-sm-7">
+                    <b>Enetr Marks</b> 
+                </div>
+                <div class="col-sm-5">
+                    <input type="button" id="btnDefaultMarksZero" value="Set Default Marks Zero" class="btn btn-danger" style="padding-top:2%;" />
+                </div>
+            </div>
+                <div class="panel-body">
+                    <div style="padding-top: 10px;">
+                        <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>RegistrationID</th>
+                                    <th>Name</th>
+                                    <th>Marks Acquired</th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        $("#divPerformanceTable").hide();
+        $("#btnClear").hide();
+        $('#btnClear').click(function () {
+            $("#divPerformanceTable").hide();
+            $("#btnClear").hide();
+            $("#btnSearch").show();
+            $("#ddlExamType").prop('disabled', false);
+            $("#ddlClass").prop('disabled', false);
+            $("#ddlSubject").prop('disabled', false);
+        });
+        $('#btnDefaultMarksZero').click(function () {
+            var url = '@Url.Content("~/")' + "SubjectPerformances/SetDefaultMarksZeroBySesseionExamID";
+                        if ($("#hdnSessionExamID").val() != "") {
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                //need to change exam type id
+                                data: '{ ExamSessionID: "' + $("#hdnSessionExamID").val() + '"}',
+                                contentType: "application/json; charset=utf-8",
+                                dataType: 'json',
+                                success: function (jsonData) {
+                                    alert(jsonData.responseText);
+                                    ShowStudentPerformance();
+                                },
+                                failure: function (response) {
+                                    alert(response.responseText);
+                                },
+                                error: function (response) {
+                                    alert(response.responseText);
+                                }
+                            });
+                        }
+        });
+        $('#btnSearch').click(function () {
+            if ($("#ddlExamType").val() == "") {
+                alert("Select Exam Type");
+                return false;
+            }
+            else if ($("#ddlClass").val() == "") {
+                alert("Select Class");
+                return false;
+            }
+            else if ($("#ddlSubject").val() == "") {
+                alert("Select Subject");
+                return false;
+            }
+            else {
+                GetSessionExamDetail();
+            }
+        });
+    });
+
+
+    function ShowStudentPerformance() {
+        $("#ddlExamType").prop('disabled', true);
+        $("#ddlClass").prop('disabled', true);
+        $("#ddlSubject").prop('disabled', true);
+        $("#btnClear").show();
+        $('#btnSearch').hide();
+        $("#myTable").dataTable().fnDestroy();
+        $("#divPerformanceTable").show();
+        var table= $("#myTable").DataTable({
+            "processing": true, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": true, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "ajax": {
+                "url": "/SubjectPerformances/GetStudentMarksData",
+                "data": {
+                    "ExamType": $("#ddlExamType").val(),
+                    "studentClass": $("#ddlClass").val(),
+                    "subject": $("#ddlSubject").val()
+                },
+                "type": "POST",
+                "datatype": "json"
+            },
+            "columnDefs":
+                [{
+                    "targets": [0],
+                    "bVisible": false,
+                    "searchable": false
+                },
+                {
+                    "targets": [1],
+                    "bVisible": false,
+                    "searchable": false
+                },
+                {
+                    "targets": [2],
+                    "visible": true,
+                    "searchable": true,
+                    "orderable": true,
+                    "width": "40%"
+                },
+                {
+                    "targets": [4],
+                    "visible": true,
+                    "searchable": false,
+                    "orderable": false,
+                }
+                ],
+
+            "columns": [
+                { "data": "ID", "name": "ID", "autoWidth": true },
+                { "data": "RegistrationID", "name": "RegistrationID", "autoWidth": true },
+                { "data": "StudentName", "name": "Name", "autoWidth": true },
+                //{ "data": "MarksAcquired", "name": "Marks", "autoWidth": true },
+                {
+                    "data": "MarksAcquired", "name": "MarksAcquired",
+                    render: function (data, type, full, meta) {
+                        if (full.ID == 0)
+                            return '<input class="form-control trackInput" id="Markup" name="Markup" type="text"  value = ' + full.MarksAcquired + '  >';
+                        else
+                            return '<input class="form-control trackInput" id="Markup" name="Markup" type="text" disabled="true"  value = ' + full.MarksAcquired + '  >';
+                    }
+                },
+                {
+                    "render": function (data, type, full, meta) {
+                        if (full.ID == 0)
+                            return "";
+                        else {
+                            editClick();
+                            return "<a href='#' class='btn btn-info trackEdit' id='btnEdit'>Edit</a>";
+                        }
+                              //return "<a href='#' class='btn btn-info trackEdit' >View</a>";
+
+                    }
+                },
+            ],
+            "drawCallback": function (settings) {
+                $(".trackInput").on("change", function () {
+                    var totalmarks = parseInt($("#hdnTotalMarks").val());
+                    var thisText = parseInt($(this).val());
+                    if ($.isNumeric(thisText) == false) {
+                        alert('Enter numbers only');
+                    }
+                    else if (totalmarks < thisText || thisText < 0) {
+                        alert('Acquired Marks must be between 0 to Total Marks');
+                    }
+                    else {
+                        debugger;
+                        var $row = $(this).parents("tr");
+                        //var rowData = $row.find("td:eq(0)").text();
+                        var data = $('#myTable').DataTable().row($row).data();
+                        var ID = data['ID']
+                        var RegID = data['RegistrationID'];
+                        var StudentName = data['StudentName'];
+                        var MarksAcquired = $(this).val();
+                        var url = '@Url.Content("~/")' + "SubjectPerformances/EditMarks";
+                        if ($("#hdnSessionExamID").val() != "") {
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                //need to change exam type id
+                                data: '{ RegistrationID: "' + RegID + '", Name: "' + StudentName + '", Marks: "' + MarksAcquired + '", ExamSessionID: "' + $("#hdnSessionExamID").val() + '", ID: "' + ID + '"}',
+                                contentType: "application/json; charset=utf-8",
+                                dataType: 'json',
+                                success: function (jsonData) {
+                                    if (jsonData.Status == "true") {
+                                        var editStidentID = 0;
+                                        alert(jsonData.Result);
+                                        editStidentID = jsonData.StudentID;
+                                        var row = $('#myTable').DataTable().row($row);
+                                        row.nodes().to$().find('td').eq(2).html("<a href='#' class='btn btn-info trackEdit' id='btnEdit'>Edit</a>");
+                                        editClick();
+                                        row.nodes().to$().find('input').prop('disabled', true);
+                                        if (editStidentID > 0) {
+                                            //var colIndex = table.cell(this).index().column;
+                                            var rowIndex = $('#myTable').DataTable().cell(row.nodes().to$().find('td').eq(2)).index().row;
+                                            $('#myTable').DataTable().cell(rowIndex, 0).data(editStidentID);
+                                            editStidentID = 0;
+                                        }
+                                    }
+                                    else {
+                                        alert(jsonData.Result);
+                                    }
+                                },
+                                failure: function (response) {
+                                    alert(response.responseText);
+                                },
+                                error: function (response) {
+                                    alert(response.responseText);
+                                }
+                            });
+                        }
+
+                    }
+                })
+            }
+
+        });
+
+    }
+
+    function editClick() {
+        $('#myTable .trackEdit').on('click', function () {
+            var $row = $(this).parents("tr");
+            var row = $('#myTable').DataTable().row($row);
+            row.nodes().to$().find('td').eq(2).html("");
+            row.nodes().to$().find('input').prop('disabled', false);
+        });
+    }
+
+    function GetSessionExamDetail() {
+        var url = '@Url.Content("~/")' + "SubjectPerformances/GetSessionExamDetail";
+        $("#hdnSessionExamID").val("");
+        $("#hdnTotalMarks").val("0");
+        $('#divTotalmarks span').html('<strong>0</strong>');
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: '{SubjectID: "' + $("#ddlSubject").val() + '", ClassID: "' + $("#ddlClass").val() + '", ExamTypeID: "' + $("#ddlExamType").val() + '"}',
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                if (response.Status === undefined) {
+                    $('#contentBody').html(response);
+                    $('#myModal').modal('show');
+                }
+                else {
+                    if (response.Status =="true") {
+                        $("#hdnSessionExamID").val(response.SessionExamID);
+                        $("#hdnTotalMarks").val(response.TotalMarks);
+                        $('#divTotalmarks span').html('<strong>' + response.TotalMarks+'</strong>');
+                        ShowStudentPerformance();
+                    }
+                    else {
+                        alert(response.Message);
+                    }
+
+                }
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+        return false;
+    }
+
+    function OnSuccess(jsonData) {
+        if (jsonData.Status == "true") {
+            $('#myModal').modal('toggle');
+            GetSessionExamDetail();
+        }
+        else {
+            alert(jsonData.Message);
+        }
+    }
+</script>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Exam Evaluation Marks</h4>
+            </div>
+            <div class="modal-body" id="contentBody">
+
+            </div>
+        </div>
+    </div>
+</div>

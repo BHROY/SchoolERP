@@ -1,0 +1,350 @@
+﻿@model SchoolManagement.Models.StaffViewModel
+@*@using CaptchaMvc.HtmlHelpers*@
+@{ ViewBag.Title = "EditStaff";
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml"; }
+
+
+
+
+<h4 class="page-header">Add New Staff</h4>
+
+<div class="panel panel-default">
+
+    <div class="panel-body">
+
+        @if (TempData["MessageRegistration"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["MessageRegistration"]</p>}
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @using (Html.BeginForm("EditStaff", "SuperAdmin", FormMethod.Post, new { autocomplete = "off", enctype = "multipart/form-data", id = "formD" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.HiddenFor(model => model.RegistrationID, new { id = "hdnRegistrationID" })
+
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label manadatory" })
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @maxlength = 40, @onkeypress = "return onlyspecchar(event);" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.Mobileno, htmlAttributes: new { @class = "control-label manadatory" })
+                    @Html.TextBoxFor(model => model.Mobileno, new { @class = "form-control", @maxlength = 10, @onkeydown = "return OnlyNumeric(this);" })
+                    @Html.ValidationMessageFor(model => model.Mobileno, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.EmailID, htmlAttributes: new { @class = "control-label manadatory" })
+                    @Html.TextBoxFor(model => model.EmailID, new { @class = "form-control", @maxlength = 50 })
+                    @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4" style="margin-top:20px;">
+                    @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label manadatory" })
+                    @Html.RadioButtonFor(model => model.Gender, "M") @Html.Label("", "Male")
+                    @Html.RadioButtonFor(model => model.Gender, "F") @Html.Label("", "Female")
+                    <br />
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.Birthdate, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Birthdate, "{0:dd-MM-yyyy}", new { @class = "form-control", @onkeypress = "alert('Choose Birthdate');" })
+                    @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.RoleID, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.RoleID, new SelectList(Model.ListofRoles, "RoleID", "Rolename"), "Select", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.RoleID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                @*<div class="col-lg-4">
+                    @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label manadatory" })
+                    @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @maxlength = 20, @onkeypress = "return onlyspecchar(event);" })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>*@
+                <div class="col-lg-4">
+                    @Html.Label("DateofJoining", "Date of Joining", htmlAttributes: new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.DateofJoining, "{0:dd-MM-yyyy}", new { @class = "form-control", @maxlength = 30, })
+                    @Html.ValidationMessageFor(model => model.DateofJoining, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <br />
+            <div class="panel panel-default">
+                <div class="panel-heading">Documents</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            @Html.DropDownList("Doctype", new SelectList((System.Collections.IEnumerable)ViewData["DocumentType"], "Value", "Text"), "Select", new { @class = "form-control" })
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="mb-3">
+                                @*<input class="form-control" type="file" id="fileUpload">*@
+
+
+                                <input type="file" id="FileUpload1" class="form-control"/>
+
+                            </div>
+                            @*<input type="file" name="FileUpload1" id="fileUpload" />*@
+                        </div>
+                        <div class="col-lg-2">
+                            @*<input id="btnUploadFile" type="button" value="Upload File"  class="btn btn-secondary" />*@
+
+                            <input type="button" id="btnUpload" value="Upload Files" class="btn btn-secondary"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br />
+            <table id="myTable" data-role="table" data-mode="columntoggle"  class="table table-bordered dt-responsive nowrap" style="width: 60%;">
+                <thead>
+
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="myTableBody">
+                    
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Edit Staff" class="btn btn-success" />
+                        @Html.ActionLink("Clear", "Edit", "SuperAdmin", null, new { @class = "btn btn-danger" })
+
+                        @Html.ActionLink("All Admin", "admin", "AllUsers", null, new { @class = "btn btn-info" })
+
+                    </div>
+                    <div class="col-md-2">
+                        <input type="button" id="btnDelete" onclick="DeleteUser()" value="Delete" class="btn btn-danger" />
+                        @*@Html.ActionLink("Delete", "DeleteUser", "SuperAdmin", new {ID =  }, new { @class = "btn btn-danger" })*@
+
+                    </div>
+                </div>
+            </div>}
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="~/Scripts/datetimepicker/jquery-1.12.4.js"></script>
+<link href="~/Scripts/datetimepicker/jqueryui.css" rel="stylesheet" />
+<script src="~/Scripts/datetimepicker/jqueryui.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#btnUpload').click(function () {
+            debugger;
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+                if ($("#Doctype").val() == "") {
+                    alert("Select Document Type");
+                    return false;
+                }
+                var fileUpload = $("#FileUpload1").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+                 //Step 2: Serialized form passing model object
+                //    var ModelObject = $('#formD').serializeArray();
+                //    for (var i = 0; i < ModelObject.length; i++) {
+                //        fdata.append(ModelObject[i].name, ModelObject[i].value);
+                //    }
+                //[HttpPost] action to receive in controller file with model
+                //public ActionResult UploadDoc(Tbl_user user, HttpPostedFileBase file)
+
+                // Adding one more key to FormData object
+                //fileData.append('DoctypeName', $("#Doctype option:selected").text());
+                fileData.append('DoctypeName', $("#Doctype").val());
+                fileData.append('hdnRegistrationID', $("#hdnRegistrationID").val());
+                fileData.append('hdnUserName', $("#hdnUserName").val());
+
+                $.ajax({
+                    url: '/SuperAdmin/UploadFiles',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                        //alert(result);
+                        if (result.Status == "1") {
+                            //location.reload();
+                            UserDoduments();
+                            alert(result.Result);
+                        }
+                        else {
+                            alert(result.Result);
+                        }
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        UserDoduments();
+        $("#Birthdate").datepicker
+        ({
+            /*dateFormat: "yy-mm-dd",*/
+            dateFormat: "dd-mm-yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-100:+100",
+            onSelect: function (date) {
+                var input = date.split("-");
+                var dob = new Date(input[2] + "-" + input[1] + "-" + input[0]);
+                var today = new Date();
+
+                if (dob.getFullYear() + 18 < today.getFullYear()) {
+
+                }
+                else {
+                    $("#Birthdate").val('');
+                    alert("You are not eligible for Registration");
+                }
+            }
+        });
+
+        $("#DateofJoining").datepicker
+            ({
+                dateFormat: "dd-mm-yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-100:+100",
+            });
+
+    });
+
+    function OnlyNumeric(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        if ((charCode < 48 || charCode > 57)) {
+            if (charCode == 8 || charCode == 46 || charCode == 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+
+
+    function CheckUsernameExists() {
+        var url = '@Url.Content("~/")' + "Registration/CheckUserNameExists";
+        var source = "#Username";
+        $.post(url, { Username: $(source).val() }, function (data) {
+            if (data) {
+                $(source).val('');
+                alert("Username Already Used try unique one!");
+            }
+            else {
+
+            }
+        });
+    }
+
+    function onlyspecchar(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        var txt = String.fromCharCode(charCode)
+        if ((txt.match(/^[a-zA-Z\b. ]+$/)) || (txt.match(/^[0-9]+$/)) || (charCode == 64) || (charCode == 45) || (charCode == 46) || (charCode == 95) || (charCode == 41)) {
+            return true;
+        }
+        return false;
+    }
+    function DeleteUser() {
+        var userid = $("#hdnRegistrationID").val();
+        $.ajax({
+            type: 'GET',
+            url: '/SuperAdmin/DeleteUser',
+            dataType: 'json',
+            data: { ID: userid },
+            success: function (jsonData) {
+                if (jsonData.Status == "1") {
+                    alert(jsonData.Result);
+                    var url = "/AllUsers/admin";
+                    window.location.href = url;
+                }
+                else {
+                    alert(jsonData.Result);
+                }
+            },
+            error: function () {
+                console.log('something went wrong - debug it!');
+            }
+        });
+    }
+
+    function DeleteUserDoc(ID) {
+        var url = "/SuperAdmin/DeleteFiles";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: '{DocumentID: "' + ID + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                alert(response);
+            },
+            failure: function (response) {
+                alert(response);
+            },
+            error: function (response) {
+                alert(response);
+            }
+        });
+    }
+
+    function UserDoduments() {
+        var userid = $("#hdnRegistrationID").val();
+        $.ajax({
+            type: 'GET',
+            url: '/SuperAdmin/GetUserDocuments',
+            dataType: 'json',
+            data: { UserID: userid },
+            success: function (jsonData) {
+                var rows = '';
+
+                if ($(jsonData.userDocs).length == 0) {
+                    $("#myTable").hide();
+                } else {
+                    $("#myTable").show();
+                    $.each(jsonData.userDocs, function (i, Doc) {
+                        rows += "<tr><td style='widith: 20%;'>" + Doc.DocumentTypeName + "</td><td style='widith: 50%;'>" + Doc.DocumentName + ' ' +
+                            "</td><td style='widith: 30%;'><a href=" + Doc.DocumentPath + " target='_blank'>view </a> | <a href='#' onclick=DeleteUserDoc('" +
+                            Doc.DocumentID + "'); >delete</a></td></tr>";
+                    });
+                    $("#myTableBody").empty();
+                    $('#myTableBody').append(rows);
+                }
+
+            },
+            error: function () {
+                console.log('something went wrong - debug it!');
+            }
+        });
+    }
+</script>

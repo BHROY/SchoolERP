@@ -1,0 +1,181 @@
+﻿
+@model SchoolManagement.Models.SubjectPerformanceViewModel
+@{ ViewBag.Title = "Roles";
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml"; }
+
+<link href="~/Scripts/dataTablesScripts/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Scripts/dataTablesScripts/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/dataTablesScripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTablesScripts/dataTables.bootstrap4.min.js"></script>
+
+<style type="text/css">
+    #scrolly {
+        width: 1000px;
+        height: 450px;
+        overflow: auto;
+        overflow-y: hidden;
+        margin: 0 auto;
+        white-space: nowrap;
+    }
+</style>
+
+<h2>Student Exam Performance</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row" style="padding-top:2%">
+    <div class="col-sm-1 text-right" style=" width: 12%">
+        @Html.LabelFor(model => model.ExamTypeID, htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="col-lg-2 text-left">
+        @Html.DropDownListFor(model => model.ExamTypeID, new SelectList(Model.ListofExamType, "Value", "Text"), "Select", new { id = "ddlExamType", @class = "form-control" })
+    </div>
+    <div class="col-sm-1 text-right">
+        @Html.LabelFor(model => model.ClassID, htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="col-lg-2 text-left">
+        @Html.DropDownListFor(model => model.ClassID, new SelectList(Model.ListofClass, "Value", "Text"), "Select", new { id = "ddlClass", @class = "form-control" })
+    </div>
+    <div class="col-lg-1 text-right">
+        @Html.LabelFor(model => model.SubjectID, htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="col-lg-2 text-left">
+        @Html.DropDownListFor(model => model.SubjectID, new SelectList(Model.ListofSubjects, "Value", "Text"), "Select", new { id = "ddlSubject", @class = "form-control" })
+    </div>
+    <div class="col-lg-2 text-center">
+        <input type="button" id="btnSearch" value="Search" class="btn btn-secondary" style="padding-top:2%;" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <div id="divCurrentStudent" style="padding-top: 10px;">
+                    <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>RegistrationID</th>
+                                <th>StudentName</th>
+                                <th>Class</th>
+                                <th>AcquiredMarks</th>
+                                <th>TotalMarks</th>
+                                <th>Percentage</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        ShowPerformanceDetails();
+        $('#btnSearch').click(function () {
+            ShowPerformanceDetails();
+        });
+    });
+    function ShowPerformanceDetails() {
+        $("#myTable").dataTable().fnDestroy();
+        $("#myTable").DataTable({
+            "processing": true, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": true, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "ajax": {
+                "url": "/SubjectPerformances/ShowAllStudentPerformance",
+                "data": {
+                    "ExamType": $("#ddlExamType").val(),
+                    "studentClass": $("#ddlClass").val(),
+                    "subject": $("#ddlSubject").val()
+                },
+                "type": "POST",
+                "datatype": "json"
+            },
+            "columnDefs":
+                [{
+                    "targets": [0],
+                    "visible": false,
+                    "searchable": false
+                },
+                {
+                    "targets": [6],
+                    "visible": true,
+                    "searchable": false,
+                    "orderable": false
+                }
+                ],
+
+            "columns": [
+                { "data": "RegistrationID", "name": "RegistrationID", "autoWidth": true },
+                { "data": "StudentName", "name": "StudentName", "autoWidth": true },
+                { "data": "ClassName", "name": "ClassName", "autoWidth": true },
+                { "data": "MarksAcquired", "ClassName": "MarksAcquired", "autoWidth": true },
+                { "data": "TotalMarks", "name": "TotalMarks", "autoWidth": true },
+                {
+                    "render": function (data, type, full, meta) {
+                        return parseFloat(full.Percentage).toFixed(2);
+                    }
+                },
+                {
+                    "render": function (data, type, full, meta) {
+
+                        return "<a href='#' class='btn btn-info' onclick=ShowUserDetails('" + full.RegistrationID + "'); >View</a>";
+
+                    }
+                },
+            ]
+
+        });
+    }
+</script>
+
+<script type="text/javascript">
+
+    function ShowUserDetails(ID) {
+        debugger;
+        var url = '@Url.Content("~/")' + "AllUsers/UserDetails";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: '{RegistrationID: "' + ID + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response)
+            {
+                $('#contentBody').html(response);
+                $('#myModal').modal('show');
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+
+
+</script>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">User Detail</h4>
+            </div>
+            <div class="modal-body" id="contentBody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
