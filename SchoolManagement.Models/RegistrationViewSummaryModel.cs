@@ -17,6 +17,7 @@ namespace SchoolManagement.Models
         public string Username { get; set; }
         public string ClassName { get; set; }
         public DateTime? JoiningDate { get; set; }
-
+        public string RegistrationNo { get; set; }
+        public int RollNo { get; set; }
     }
 }

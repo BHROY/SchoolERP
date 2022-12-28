@@ -281,7 +281,7 @@ namespace SchoolManagement.Controllers
                     else
                         TempData["MessageRegistration"] = "Some error occured!";
 
-                    return RedirectToAction("EditStaff", new { RegistrationID = userDetailsResponse.RegistrationID });
+                    return RedirectToAction("EditStudent", new { RegistrationID = userDetailsResponse.RegistrationID });
 
                 }
                 registration.ListofClass = DocumentTypeList;
@@ -385,24 +385,19 @@ namespace SchoolManagement.Controllers
                         result = new { Result = "Inalid User!", Status = "0" };
 
                     return Json(result, JsonRequestBehavior.AllowGet);
-                    //return Json("File Uploaded Successfully!");
                 }
                 catch (Exception ex)
                 {
                     result = new { Result = "Error occurred. Error details: " + ex.Message, Status = "0" };
                     return Json(result, JsonRequestBehavior.AllowGet);
-                    //return Json("Error occurred. Error details: " + ex.Message);
                 }
             }
             else
             {
                 result = new { Result = "No files selected.", Status = "0" };
-
-                //return Json("No files selected.");
             }
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-        //int? ID, string FilePath, int? RegistrationID
         public ActionResult DeleteFiles(int DocumentID)
         {
             try
@@ -491,9 +486,6 @@ namespace SchoolManagement.Controllers
             tbl_User.StudentClassID = studentViewModel.StudentClassID;
             return tbl_User;
         }
-
-
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]

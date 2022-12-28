@@ -92,3 +92,144 @@ E:\ErrorLog\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.
 E:\ErrorLog\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.csproj.CopyComplete
 E:\ErrorLog\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.dll
 E:\ErrorLog\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.pdb
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\SchoolManagement.Models.dll.config
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\SchoolManagement.Models.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\SchoolManagement.Models.pdb
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\CaptchaMvc.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Dapper.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Elmah.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Elmah.Mvc.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Newtonsoft.Json.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Owin.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\System.ComponentModel.Annotations.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Linq.Dynamic.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Security.AccessControl.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Security.Permissions.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Security.Principal.Windows.dll
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\CaptchaMvc.pdb
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\CaptchaMvc.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Dapper.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\SchoolManagement\SchoolManagement.Models\bin\Debug\Newtonsoft.Json.xml
+E:\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.csproj.AssemblyReference.cache
+E:\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.csproj.CoreCompileInputs.cache
+E:\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.csproj.CopyComplete
+E:\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.dll
+E:\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.pdb
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\SchoolManagement.Models.dll.config
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\SchoolManagement.Models.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\SchoolManagement.Models.pdb
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\CaptchaMvc.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Dapper.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Elmah.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Elmah.Mvc.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Newtonsoft.Json.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Owin.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\System.ComponentModel.Annotations.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Linq.Dynamic.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Security.AccessControl.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Security.Permissions.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Security.Principal.Windows.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\CaptchaMvc.pdb
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\CaptchaMvc.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Dapper.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Newtonsoft.Json.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.csproj.AssemblyReference.cache
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.csproj.CoreCompileInputs.cache
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.csproj.CopyComplete
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.pdb
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\SchoolManagement.Models.dll.config
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\SchoolManagement.Models.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\SchoolManagement.Models.pdb
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\CaptchaMvc.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Dapper.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Elmah.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Elmah.Mvc.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Newtonsoft.Json.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Owin.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\System.ComponentModel.Annotations.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Linq.Dynamic.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Security.AccessControl.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Security.Permissions.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\System.Security.Principal.Windows.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\CaptchaMvc.pdb
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\CaptchaMvc.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Dapper.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\bin\Debug\Newtonsoft.Json.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.csproj.AssemblyReference.cache
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.csproj.CoreCompileInputs.cache
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.csproj.CopyComplete
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement.Models\obj\Debug\SchoolManagement.Models.pdb

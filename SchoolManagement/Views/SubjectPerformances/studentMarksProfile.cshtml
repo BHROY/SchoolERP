@@ -1,0 +1,163 @@
+﻿@model SchoolManagement.Models.StudentViewModel
+@{
+    ViewBag.Title = "_StudentSubjectMarks";
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    WebGrid webGrid = new WebGrid(source: Model.ListAllSubjectMarks, canSort: false, canPage: true);
+}
+<style type="text/css">
+    th {
+        background-color: #545470;
+        color: white;
+    } 
+</style>
+<div class="row jumbotron" style="padding-top: 0%;padding-bottom: 1%;">
+    <div class="col-sm-1">
+        @Html.HiddenFor(model => model.RegistrationID, new { id = "hdnRegistrationID" })
+        &nbsp;
+    </div>
+    <div class="col-lg-4">
+        <h2>
+            <label for="Name" class="col-form-label">Name:</label>
+            @Html.DisplayFor(model => model.Name)
+        </h2>
+    </div>
+    <div class="col-lg-2">
+        <h2>
+            <strong>@Html.DisplayFor(model => model.CurrentClassName)</strong>
+        </h2>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        &nbsp;
+    </div>
+    <div class="col-sm-8">
+        @if (Model != null)
+        {
+            @*@webGrid.GetHtml(tableStyle: "webgrid",
+                alternatingRowStyle: "webgrid-alternating-row",
+                headerStyle: "webgrid-header",
+                footerStyle: "webgrid-footer",
+                selectedRowStyle: "webgrid-selected-row",
+                rowStyle: "webgrid-row-style");*@
+            @webGrid.GetHtml(htmlAttributes: new { @id = "WebGrid", @class = "table table-striped table-bordered table-hover" })
+
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-7">
+        <div id='divchartOerallSubjectAnalysis'>
+        </div>
+    </div>
+    <div class="col-sm-5">
+        <div id='divchartOerallExamAnalysis'>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        packages: ['corechart', 'gauge']
+    });
+    google.setOnLoadCallback(LoadChartData);
+
+    var chart;
+    var options;
+    var data;
+
+    function LoadChartData() {
+        debugger;
+        var url = '@Url.Content("~/")' + "SubjectPerformances/GetStudentMarksDataForGraph";
+        //var url = "/SubjectPerformances/GetStudentMarksData";
+       // window.location.href = url;
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: '{ RegistrationID: "' + $("#hdnRegistrationID").val() + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response)
+            {
+                if (response.responseText == "Success") {
+                    if (response.DataArray.length > 0) {
+                        var chartsdata = response.DataArray;
+                        var data = [];
+                        var Header = ['Element', 'Percentage'];
+                        data.push(Header);
+                        for (var i = 0; i < chartsdata.length; i++) {
+                            var temp = [];
+                            temp.push(chartsdata[i].SubjectName);
+                            temp.push(chartsdata[i].Percentage);
+
+                            data.push(temp);
+                        }
+                        var chartdata = new google.visualization.arrayToDataTable(data);
+                        options = {
+                           // width: 100%,
+                            height: 300,
+                            title: 'Overall Subject Wise Analysis',
+                            hAxis: {
+                                title: 'Subject',
+                                gridlines: { count: 10 }
+                            },
+                            vAxis: {
+                                title: 'Percentage'
+                            }
+                        };
+
+                        var chartContainer = document.getElementById("divchartOerallSubjectAnalysis");
+                        var chart = new google.visualization.ColumnChart(chartContainer);
+                        chart.draw(chartdata, options);
+                    }
+
+                    //Exam wise
+                    if (response.DataArray.length > 0) {
+                        var chartsdata = response.DataArrayExamWise;
+                        var data = [];
+                        var Header = ['Element', 'Percentage'];
+                        data.push(Header);
+                        for (var i = 0; i < chartsdata.length; i++) {
+                            var temp = [];
+                            temp.push(chartsdata[i].ExamType);
+                            temp.push(chartsdata[i].Percentage);
+
+                            data.push(temp);
+                        }
+                        var chartdata = new google.visualization.arrayToDataTable(data);
+                        options = {
+                           // width: 1000,
+                            height: 300,
+                            title: 'Overall Exam Wise Analysiss',
+                            hAxis: {
+                                title: 'Exam',
+                                gridlines: { count: 10 }
+                            },
+                            vAxis: {
+                                title: 'Percentage'
+                            }
+                        };
+
+                        var chartContainer = document.getElementById("divchartOerallExamAnalysis");
+                        var chart = new google.visualization.ColumnChart(chartContainer);
+                        chart.draw(chartdata, options);
+                    }
+                }
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+
+
+
+}
+</script>
+

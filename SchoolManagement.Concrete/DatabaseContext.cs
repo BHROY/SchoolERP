@@ -36,5 +36,6 @@ namespace SchoolManagement.Concrete
         public DbSet<StudentSessionInfo> StudentSessionInfo { get; set; }
         public DbSet<SessionExam> SessionExam { get; set; }
         public DbSet<StudentExamPerformance> StudentExamPerformance { get; set; }
+        public DbSet<ClassToSubject> ClassToSubject { get; set; }
     }
 }

@@ -1,21 +1,11 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using SchoolManagement.Models;
-//using System.Linq.Dynamic;
-//using SchoolManagement.Interface;
-//using System.Data.SqlClient;
-//using System.Configuration;
-//using Dapper;
-
+﻿
 using Dapper;
 using SchoolManagement.Interface;
 using SchoolManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Dynamic;
@@ -45,7 +35,7 @@ namespace SchoolManagement.Concrete
             }
         }
 
-        public SubjectPerformanceViewModel ShowStudentsClassWiseSubjectWise(string sortColumn, string sortColumnDir, string Search,string examTypeID, string studentClassID, string subjectID, int currentSession)
+        public SubjectPerformanceViewModel ShowStudentsClassWiseSubjectWise(string sortColumn, string sortColumnDir, string Search, string examTypeID, string studentClassID, string subjectID, int currentSession)
         {
             var _context = new DatabaseContext();
             SubjectPerformanceViewModel subjectPerformanceViewModel = new SubjectPerformanceViewModel();
@@ -112,9 +102,6 @@ namespace SchoolManagement.Concrete
         {
             var _context = new DatabaseContext();
             SubjectPerformanceViewModel subjectPerformanceViewModel = new SubjectPerformanceViewModel();
-            //int ExamTypeID = Convert.ToInt32(examTypeID);
-            //int StudentClassID = Convert.ToInt32(studentClassID);
-            //int SubjectID = Convert.ToInt32(subjectID);
             var sessionExam = _context.SessionExam.Where(i => i.ExamTypeID == examTypeID && i.SessionID == CurrentSessionID && i.SubjectID == subjectID && i.ClassID == classID).FirstOrDefault();
             if (sessionExam != null)
             {
@@ -195,7 +182,7 @@ namespace SchoolManagement.Concrete
 
         }
 
-        public bool SetDefaultMarksZeroBySesseionExamID(int ExamSessionID,int createdBy)
+        public bool SetDefaultMarksZeroBySesseionExamID(int ExamSessionID, int createdBy)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolDBEntities"].ToString()))
             {
@@ -225,6 +212,233 @@ namespace SchoolManagement.Concrete
                 }
             }
 
+        }
+
+        public DataSet GetStudentMarksDataForGraph(int registrationID, int CurrentSessionID)
+        {
+            var _context = new DatabaseContext();
+            DataSet ds = new DataSet(); //dataset
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolDBEntities"].ToString()))
+            {
+                var cmd = new SqlCommand("[dbo].[Usp_GetStudent_Marks_Analysis]", con);
+                cmd.CommandText = "[dbo].[Usp_GetStudent_Marks_Analysis]";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@RegistrationID", registrationID));
+                cmd.Parameters.Add(new SqlParameter("@currentSessionID", CurrentSessionID));
+
+                SqlDataAdapter da = new SqlDataAdapter(); //adapter
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+            }
+
+            return ds;
+        }
+        public List<StudentViewModel> ShowStudentsClassWiseRollnumber(string sortColumn, string sortColumnDir, string Search, string studentClassID, int currentSession)
+        {
+            var _context = new DatabaseContext();
+            int StudentClassID = Convert.ToInt32(studentClassID);
+            var studentSessionInfo = (from student in _context.StudentSessionInfo.Where(i => i.SessionID == currentSession && i.ClassID == StudentClassID)
+                                      join registration in _context.Tbl_user on
+                                          new { key1 = student.RegistrationID } equals
+                                         new { key1 = registration.RegistrationID }
+                                      select new StudentViewModel
+                                      {
+                                          ID = student.ID,
+                                          Name = student.Name,
+                                          RegistrationID = student.RegistrationID,
+                                          FatherName = registration.FatherName,
+                                          RollNo = student.RollNo
+                                      }).ToList();
+            if (!string.IsNullOrEmpty(Search))
+            {
+                studentSessionInfo = studentSessionInfo.Where(m => m.Name == Search || m.RollNo.ToString() == Search).ToList();
+            }
+            if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDir)))
+            {
+                studentSessionInfo = studentSessionInfo.OrderBy(sortColumn + " " + sortColumnDir).ToList();
+            }
+            return studentSessionInfo;
+        }
+
+        public int InsertUpdateStudentRollNumber(StudentSessionInfo studentSessionInfo)
+        {
+            var _context = new DatabaseContext();
+            if (studentSessionInfo.ID != 0)
+            {
+                var studentInfoList = _context.StudentSessionInfo.Where(i => i.ClassID == studentSessionInfo.ClassID && i.SessionID == studentSessionInfo.SessionID).ToList();
+                var studentCheckRollExists = studentInfoList.Where(i => i.RollNo == studentSessionInfo.RollNo).FirstOrDefault();
+                if (studentCheckRollExists != null)
+                    return 1; //Roll Number Already Exists
+                else
+                {
+                    var studentRoll = studentInfoList.Where(i => i.ID == studentSessionInfo.ID).FirstOrDefault();
+                    studentRoll.RollNo = studentSessionInfo.RollNo;
+                    _context.Entry(studentRoll).State = System.Data.Entity.EntityState.Modified;
+                    if (_context.SaveChanges() > 0)
+                        return 2; //Success
+                }
+            }
+            return 0; //error ID doesnot exist
+        }
+        public bool SetDefaultAlphabeticallyRollNumber(int ClassID, int CurrentSession)
+        {
+            try
+            {
+                var _context = new DatabaseContext();
+
+                if (ClassID != 0)
+                {
+                    var studentInfoList = _context.StudentSessionInfo.Where(i => i.ClassID == ClassID && i.SessionID == CurrentSession).OrderBy(i => i.Name).ToList();
+                    int a = 1;
+                    using (System.Data.Entity.DbContextTransaction dbTran = _context.Database.BeginTransaction())
+                    {
+                        foreach (var student in studentInfoList)
+                        {
+                            student.RollNo = a;
+                            _context.Entry(student).State = System.Data.Entity.EntityState.Modified;
+                            if (_context.SaveChanges() == 0)
+                            {
+                                dbTran.Rollback();
+                                return false;
+                            }
+                            a++;
+                        }
+                        dbTran.Commit();
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
+        public List<DropDown> ShowClassWiseAddedSubjects(string studentClass, int CurrentSessionID)
+        {
+            try
+            {
+                var _context = new DatabaseContext();
+                var ClassID = Convert.ToInt32(studentClass);
+                var SubjectList = _context.DropDownSet.Where(i => i.Category == "Subject").ToList();
+                var ClaasWiseSubjects = _context.ClassToSubject.Where(i => i.ClassID == ClassID && i.SessionID == CurrentSessionID && i.IsDeleted == false).ToList();
+                SubjectList = SubjectList.Where(i => ClaasWiseSubjects.Any(p => p.SubjectID == i.Value)).ToList();
+                return SubjectList;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool CheckIfExamHeldForClass(string studentClass, int CurrentSessionID)
+        {
+            try
+            {
+                var _context = new DatabaseContext();
+                var ClassID = Convert.ToInt32(studentClass);
+                var SessionExamtList = _context.SessionExam.Where(i => i.ClassID == ClassID && i.SessionID == CurrentSessionID).Select(r => r.ID).ToList();
+                //var ExamSubjects = _context.StudentExamPerformance.ToList();
+                //ExamSubjects = ExamSubjects.Where(i => SessionExamtList.Any(p => p.ID == i.SessionExamID)).ToList();
+                var ExamSubjects = _context.StudentExamPerformance.Where(i => SessionExamtList.Contains(i.SessionExamID)).ToList();
+                if (ExamSubjects.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
+
+
+        public bool InsertUpdateClassToSubject(List<ClassToSubject> ClassToSubjectList)
+        {
+            var _context = new DatabaseContext();
+            var ClassAndSession = ClassToSubjectList.FirstOrDefault();
+            var ClassToSubjectExistingList = _context.ClassToSubject.Where(i => i.ClassID == ClassAndSession.ClassID && i.SessionID == ClassAndSession.SessionID).ToList();
+            var ClassToSubjectToBeAddedList = ClassToSubjectList.Where(i => !ClassToSubjectExistingList.Any(p => p.SubjectID == i.SubjectID)).ToList();
+            var ClassToSubjectToBeDeletedList = ClassToSubjectExistingList.Where(i => !ClassToSubjectList.Any(p => p.SubjectID == i.SubjectID) && i.IsDeleted == false).ToList();
+            var ClassToSubjectToBeUpdatedList = ClassToSubjectExistingList.Where(i => ClassToSubjectList.Any(p => p.SubjectID == i.SubjectID) && i.IsDeleted == true).ToList();
+
+            for (var i = 0; i < ClassToSubjectToBeAddedList.Count; i++)
+            {
+                _context.ClassToSubject.Add(ClassToSubjectToBeAddedList[i]);
+                if (_context.SaveChanges() <= 0)
+                { return false; }
+            }
+            for (var i = 0; i < ClassToSubjectToBeDeletedList.Count; i++)
+            {
+                ClassToSubjectToBeDeletedList[i].IsDeleted = true;
+                _context.Entry(ClassToSubjectToBeDeletedList[i]).State = System.Data.Entity.EntityState.Modified;
+                if (_context.SaveChanges() <= 0)
+                { return false; }
+            }
+            for (var i = 0; i < ClassToSubjectToBeUpdatedList.Count; i++)
+            {
+                ClassToSubjectToBeUpdatedList[i].IsDeleted = false;
+                _context.Entry(ClassToSubjectToBeUpdatedList[i]).State = System.Data.Entity.EntityState.Modified;
+                if (_context.SaveChanges() <= 0)
+                { return false; }
+            }
+            return false;
+        }
+        public List<DropDown> GetClassBasedSubjects(int ClassID, int CurrentSessionID)
+        {
+            var _context = new DatabaseContext();
+            var ClassToSubjecList = _context.ClassToSubject.Where(i => i.ClassID == ClassID && i.SessionID == CurrentSessionID && i.IsDeleted == false).Select(r => r.SubjectID).ToList();
+            var SubjectList = _context.DropDownSet.Where(i => i.Category == "Subject").ToList();
+            if (ClassID > 0)
+                SubjectList = SubjectList.Where(i => ClassToSubjecList.Contains(i.Value)).ToList();
+            return SubjectList;
+        }
+
+        public DataSet GetMarksAnalysisForAdminForGraph(int examTypeID, int classID, int subjectID, int currentSessionID)
+        {
+            var _context = new DatabaseContext();
+            DataSet ds = new DataSet(); //dataset
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolDBEntities"].ToString()))
+            {
+                var cmd = new SqlCommand("[dbo].[Usp_Get_Teacher_Marks_Analysis]", con);
+                //cmd.CommandText = "[dbo].[Usp_Get_Teacher_Marks_Analysis]";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@currentSessionID", currentSessionID));
+                cmd.Parameters.Add(new SqlParameter("@ExamTypeID", examTypeID));
+                cmd.Parameters.Add(new SqlParameter("@ClassID", classID));
+                cmd.Parameters.Add(new SqlParameter("@SubjectID", subjectID));
+                SqlDataAdapter da = new SqlDataAdapter(); //adapter
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+            }
+
+            return ds;
+        }
+        public List<StudentPerformanceViewModel> GetGradeWiseStudentList(int examTypeID, int classID, int subjectID, string Grade, int currentSessionID)
+        {
+            var _context = new DatabaseContext();
+            DataSet ds = new DataSet(); //dataset
+            List<StudentPerformanceViewModel> StudentPerformanceViewModelList = new List<StudentPerformanceViewModel>();
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolDBEntities"].ToString()))
+            {
+                var param = new DynamicParameters();
+                param.Add("@currentSessionID", currentSessionID);
+                param.Add("@ExamTypeID", examTypeID);
+                param.Add("@ClassID", classID);
+                param.Add("@SubjectID", subjectID);
+                param.Add("@Grade", Grade);
+                var result = con.Query<StudentPerformanceViewModel>("Usp_Get_GradeWiseStudent", param, null, true, 0, System.Data.CommandType.StoredProcedure);
+                StudentPerformanceViewModelList = result.ToList();
+            }
+            return StudentPerformanceViewModelList;
         }
     }
 }

@@ -38,6 +38,7 @@ namespace SchoolManagement.Models
         public int PromotionalStatus { get; set; }
         [NotMapped]
         public List<DropDown> ListofPromotionalStatus { get; set; }
-
+        [NotMapped]
+        public bool isCheck { get; set; }
     }
 }

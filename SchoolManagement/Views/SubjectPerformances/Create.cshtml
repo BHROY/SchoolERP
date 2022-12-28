@@ -24,7 +24,7 @@
         padding-top: 0px;
     }
 </style>
-<h2>Add Result</h2>
+<h4 class="page-header">Add Result</h4>
 
 @using (Html.BeginForm())
 {
@@ -77,7 +77,7 @@
         <div class="panel panel-default">
             <div class="panel-heading" style="height: 45px;">
                 <div class="col-sm-7">
-                    <b>Enetr Marks</b> 
+                    <b>Enter Marks</b> 
                 </div>
                 <div class="col-sm-5">
                     <input type="button" id="btnDefaultMarksZero" value="Set Default Marks Zero" class="btn btn-danger" style="padding-top:2%;" />
@@ -113,6 +113,33 @@
             $("#ddlExamType").prop('disabled', false);
             $("#ddlClass").prop('disabled', false);
             $("#ddlSubject").prop('disabled', false);
+        });
+         $("#ddlClass").on("change", function () {
+            var clsID = $("#ddlClass").val();
+            if (clsID == "") {
+                clsID = 0;
+            }
+            var url = '@Url.Content("~/")' + "SubjectPerformances/GetClassBasedSubjects";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: JSON.stringify({ ClassID: clsID }),
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                success: function (data) {
+                    var s = '<option value="-1"> Select</option>';
+                    for (var i = 0; i < data.SubjectList.length; i++) {
+                        s += '<option value="' + data.SubjectList[i].Value + '">' + data.SubjectList[i].Text + '</option>';
+                    }
+                    $("#ddlSubject").html(s);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
         });
         $('#btnDefaultMarksZero').click(function () {
             var url = '@Url.Content("~/")' + "SubjectPerformances/SetDefaultMarksZeroBySesseionExamID";

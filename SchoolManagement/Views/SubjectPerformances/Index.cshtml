@@ -18,8 +18,7 @@
         white-space: nowrap;
     }
 </style>
-
-<h2>Student Exam Performance</h2>
+<h4 class="page-header">Student Exam Performance</h4>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -57,6 +56,7 @@
                         <thead>
                             <tr>
                                 <th>RegistrationID</th>
+                                <th>Roll No</th>
                                 <th>StudentName</th>
                                 <th>Class</th>
                                 <th>AcquiredMarks</th>
@@ -77,6 +77,33 @@
         ShowPerformanceDetails();
         $('#btnSearch').click(function () {
             ShowPerformanceDetails();
+        });
+        $("#ddlClass").on("change", function () {
+            var clsID = $("#ddlClass").val();
+            if (clsID == "") {
+                clsID = 0;
+            }
+            var url = '@Url.Content("~/")' + "SubjectPerformances/GetClassBasedSubjects";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: JSON.stringify({ ClassID: clsID }),
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                success: function (data) {
+                    var s = '<option value="-1"> Select</option>';
+                    for (var i = 0; i < data.SubjectList.length; i++) {
+                        s += '<option value="' + data.SubjectList[i].Value + '">' + data.SubjectList[i].Text + '</option>';
+                    }
+                    $("#ddlSubject").html(s);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
         });
     });
     function ShowPerformanceDetails() {
@@ -112,6 +139,7 @@
 
             "columns": [
                 { "data": "RegistrationID", "name": "RegistrationID", "autoWidth": true },
+                { "data": "RollNumber", "name": "RollNumber", "autoWidth": true },
                 { "data": "StudentName", "name": "StudentName", "autoWidth": true },
                 { "data": "ClassName", "name": "ClassName", "autoWidth": true },
                 { "data": "MarksAcquired", "ClassName": "MarksAcquired", "autoWidth": true },
@@ -137,26 +165,8 @@
 <script type="text/javascript">
 
     function ShowUserDetails(ID) {
-        debugger;
-        var url = '@Url.Content("~/")' + "AllUsers/UserDetails";
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: '{RegistrationID: "' + ID + '" }',
-            contentType: "application/json; charset=utf-8",
-            dataType: "html",
-            success: function (response)
-            {
-                $('#contentBody').html(response);
-                $('#myModal').modal('show');
-            },
-            failure: function (response) {
-                alert(response.responseText);
-            },
-            error: function (response) {
-                alert(response.responseText);
-            }
-        });
+        var url = "/SubjectPerformances/studentMarksProfile?RegistrationID=" + ID;
+        window.location.href = url;
     }
 
 

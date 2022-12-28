@@ -16,10 +16,12 @@ namespace SchoolManagement.Controllers
     {
         private ITbl_user _IRegistration;
         private IRoles _IRoles;
+        private ISubjectPerformance _ISubjectPerformance;
         public RegistrationController()
         {
             _IRegistration = new Tbl_userConcrete();
             _IRoles = new RolesConcrete();
+            _ISubjectPerformance = new SubjectPerformanceConcrete();
         }
 
         // GET: Registration/Create
@@ -95,6 +97,11 @@ namespace SchoolManagement.Controllers
             {
                 throw;
             }
+        }
+        public ActionResult AssignRollNumbers()
+        {
+            SubjectPerformanceViewModel subjectPerformance = _ISubjectPerformance.GetMenuList();
+            return View(subjectPerformance);
         }
 
     }

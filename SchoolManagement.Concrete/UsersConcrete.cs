@@ -50,7 +50,9 @@ namespace SchoolManagement.Concrete
                                          RegistrationID = registration.RegistrationID,
                                          ClassName = ClassName.Text,
                                          Mobileno = registration.Mobileno,
-                                         Username = registration.Username
+                                         Username = registration.Username,
+                                         RegistrationNo=registration.RegistrationNo,
+                                         RollNo=studentSessionInfo.RollNo
                                      });
 
             if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDir)))

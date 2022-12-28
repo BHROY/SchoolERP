@@ -200,3 +200,318 @@ E:\ErrorLog\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.
 E:\ErrorLog\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.CopyComplete
 E:\ErrorLog\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.dll
 E:\ErrorLog\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.pdb
+E:\SchoolManagement\SchoolManagement\bin\ApplicationInsights.config
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.dll.config
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.dll
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.pdb
+E:\SchoolManagement\SchoolManagement\bin\roslyn\csc.exe
+E:\SchoolManagement\SchoolManagement\bin\roslyn\csc.exe.config
+E:\SchoolManagement\SchoolManagement\bin\roslyn\csc.rsp
+E:\SchoolManagement\SchoolManagement\bin\roslyn\csi.exe
+E:\SchoolManagement\SchoolManagement\bin\roslyn\csi.exe.config
+E:\SchoolManagement\SchoolManagement\bin\roslyn\csi.rsp
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.Managed.Core.targets
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.AppContext.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Collections.Immutable.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Console.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Globalization.Calendars.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.Compression.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.FileSystem.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Net.Http.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Net.Sockets.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Reflection.Metadata.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.ValueTuple.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.XmlDocument.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.XPath.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\SchoolManagement\SchoolManagement\bin\roslyn\vbc.exe
+E:\SchoolManagement\SchoolManagement\bin\roslyn\vbc.exe.config
+E:\SchoolManagement\SchoolManagement\bin\roslyn\vbc.rsp
+E:\SchoolManagement\SchoolManagement\bin\roslyn\VBCSCompiler.exe
+E:\SchoolManagement\SchoolManagement\bin\roslyn\VBCSCompiler.exe.config
+E:\SchoolManagement\SchoolManagement\bin\CaptchaMvc.dll
+E:\SchoolManagement\SchoolManagement\bin\Dapper.dll
+E:\SchoolManagement\SchoolManagement\bin\Elmah.dll
+E:\SchoolManagement\SchoolManagement\bin\Elmah.Mvc.dll
+E:\SchoolManagement\SchoolManagement\bin\EntityFramework.dll
+E:\SchoolManagement\SchoolManagement\bin\EntityFramework.SqlServer.dll
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Core.dll
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.Cookies.dll
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.dll
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.OAuth.dll
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.Concrete.dll
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.Interface.dll
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.Models.dll
+E:\SchoolManagement\SchoolManagement\bin\System.ComponentModel.Annotations.dll
+E:\SchoolManagement\SchoolManagement\bin\System.Linq.Dynamic.dll
+E:\SchoolManagement\SchoolManagement\bin\System.Security.AccessControl.dll
+E:\SchoolManagement\SchoolManagement\bin\System.Security.Permissions.dll
+E:\SchoolManagement\SchoolManagement\bin\System.Security.Principal.Windows.dll
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.Concrete.pdb
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.Concrete.dll.config
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.Interface.pdb
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.Interface.dll.config
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.Models.pdb
+E:\SchoolManagement\SchoolManagement\bin\SchoolManagement.Models.dll.config
+E:\SchoolManagement\SchoolManagement\bin\CaptchaMvc.pdb
+E:\SchoolManagement\SchoolManagement\bin\CaptchaMvc.xml
+E:\SchoolManagement\SchoolManagement\bin\Dapper.xml
+E:\SchoolManagement\SchoolManagement\bin\EntityFramework.xml
+E:\SchoolManagement\SchoolManagement\bin\EntityFramework.SqlServer.xml
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Core.xml
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.xml
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.Cookies.xml
+E:\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.OAuth.xml
+E:\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.AssemblyReference.cache
+E:\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
+E:\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.CopyComplete
+E:\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.dll
+E:\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.pdb
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\ApplicationInsights.config
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.dll.config
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.pdb
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csc.exe
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csc.exe.config
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csc.rsp
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csi.exe
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csi.exe.config
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csi.rsp
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.AppContext.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Collections.Immutable.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Console.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Globalization.Calendars.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.Compression.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.FileSystem.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Net.Http.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Net.Sockets.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Reflection.Metadata.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.ValueTuple.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.XPath.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\vbc.exe
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\vbc.exe.config
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\vbc.rsp
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\VBCSCompiler.exe
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\VBCSCompiler.exe.config
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\CaptchaMvc.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Dapper.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Elmah.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Elmah.Mvc.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\EntityFramework.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\EntityFramework.SqlServer.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Concrete.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Interface.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Models.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\System.ComponentModel.Annotations.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\System.Linq.Dynamic.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\System.Security.AccessControl.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\System.Security.Permissions.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\System.Security.Principal.Windows.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Concrete.pdb
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Concrete.dll.config
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Interface.pdb
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Interface.dll.config
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Models.pdb
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Models.dll.config
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\CaptchaMvc.pdb
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\CaptchaMvc.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Dapper.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\EntityFramework.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\EntityFramework.SqlServer.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.AssemblyReference.cache
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.CopyComplete
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.pdb
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.ReportViewer.Common.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.ReportViewer.DataVisualization.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.ReportViewer.WebForms.dll
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\RdlCompile.cache
+E:\Projects under process\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\RdlCompile.compiled
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\ApplicationInsights.config
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.dll.config
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.pdb
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csc.exe
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csc.exe.config
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csc.rsp
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csi.exe
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csi.exe.config
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\csi.rsp
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.Managed.Core.targets
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.AppContext.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Collections.Immutable.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Console.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Globalization.Calendars.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.Compression.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.FileSystem.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Net.Http.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Net.Sockets.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Reflection.Metadata.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.ValueTuple.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.XmlDocument.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.XPath.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\vbc.exe
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\vbc.exe.config
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\vbc.rsp
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\VBCSCompiler.exe
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\roslyn\VBCSCompiler.exe.config
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\CaptchaMvc.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Dapper.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Elmah.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Elmah.Mvc.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\EntityFramework.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\EntityFramework.SqlServer.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Core.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.Cookies.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.OAuth.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.ReportViewer.Common.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.ReportViewer.DataVisualization.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.ReportViewer.WebForms.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Concrete.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Interface.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Models.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\System.ComponentModel.Annotations.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\System.Linq.Dynamic.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\System.Security.AccessControl.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\System.Security.Permissions.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\System.Security.Principal.Windows.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Concrete.pdb
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Concrete.dll.config
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Interface.pdb
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Interface.dll.config
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Models.pdb
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\SchoolManagement.Models.dll.config
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\CaptchaMvc.pdb
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\CaptchaMvc.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Dapper.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\EntityFramework.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\EntityFramework.SqlServer.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Core.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.Cookies.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\bin\Microsoft.Owin.Security.OAuth.xml
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.AssemblyReference.cache
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\RdlCompile.cache
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\RdlCompile.compiled
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.csproj.CopyComplete
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.dll
+E:\projects Staging\School Erp MVC\SchoolManagement\SchoolManagement\obj\Debug\SchoolManagement.pdb

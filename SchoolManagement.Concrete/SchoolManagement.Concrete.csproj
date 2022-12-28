@@ -155,6 +155,18 @@
     <Compile Include="Migrations\202211231843520_SessionExamAddNames.Designer.cs">
       <DependentUpon>202211231843520_SessionExamAddNames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211250838274_test1.cs" />
+    <Compile Include="Migrations\202211250838274_test1.Designer.cs">
+      <DependentUpon>202211250838274_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212071718191_subecttoclass.cs" />
+    <Compile Include="Migrations\202212071718191_subecttoclass.Designer.cs">
+      <DependentUpon>202212071718191_subecttoclass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212081904331_addIsdelete.cs" />
+    <Compile Include="Migrations\202212081904331_addIsdelete.Designer.cs">
+      <DependentUpon>202212081904331_addIsdelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolesConcrete.cs" />
@@ -179,9 +191,11 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202210290742476_init.resx">
       <DependentUpon>202210290742476_init.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210311622070_student_session.resx">
       <DependentUpon>202210311622070_student_session.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211050633573_test.resx">
       <DependentUpon>202211050633573_test.cs</DependentUpon>
@@ -197,6 +211,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211231843520_SessionExamAddNames.resx">
       <DependentUpon>202211231843520_SessionExamAddNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211250838274_test1.resx">
+      <DependentUpon>202211250838274_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212071718191_subecttoclass.resx">
+      <DependentUpon>202212071718191_subecttoclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212081904331_addIsdelete.resx">
+      <DependentUpon>202212081904331_addIsdelete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

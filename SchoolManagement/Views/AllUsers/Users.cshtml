@@ -40,6 +40,8 @@
                         <thead>
                             <tr>
                                 <th>RegistrationID</th>
+                                <th>Registration No</th>
+                                <th>Roll No</th>
                                 <th>Name</th>
                                 <th>Class</th>
                                 <th>Username</th>
@@ -89,33 +91,39 @@
                     "searchable": false
                 },
                 {
-                    "targets": [5],
-                    "visible": true,
-                    "searchable": false,
-                    "orderable": false
-                }, {
+                    "targets": [1],
+                    "width": "8%"
+                },
+                {
+                    "targets": [2],
+                    "width": "8%"
+                },
+                {
                     "targets": [6],
                     "visible": true,
+                    "searchable": true,
+                    "orderable": false
+                },
+                {
+                    "targets": [7],
+                    "visible": true,
                     "searchable": false,
                     "orderable": false
-                }
+                },
+                {
+                    "targets": [8],
+                    "visible": true,
+                    "searchable": false,
+                    "orderable": false
+                },
                 ],
 
             "columns": [
                 { "data": "RegistrationID", "name": "RegistrationID", "autoWidth": true },
+                { "data": "RegistrationNo", "name": "RegistrationNo", "autoWidth": true },
+                { "data": "RollNo", "name": "RollNo", "autoWidth": true },
                 { "data": "Name", "name": "Name", "autoWidth": true },
-                { "data": "ClassName", "ClassName": "ClassName", "autoWidth": true },
-                //{
-                //    "render": function (data, type, full, meta) {
-                //        if (full.AssignToAdmin == "*Not Assigned*") {
-                //            return "<lable class='alert-danger'>*Not Assigned*</lable>";
-                //        }
-                //        else {
-
-                //            return "<lable class='alert-success'>" + full.AssignToAdmin + "</lable>";
-                //        }
-                //    }
-                //},
+                { "data": "ClassName", "name": "ClassName", "autoWidth": true },
                 { "data": "Username", "name": "Username", "autoWidth": true },
                 { "data": "Mobileno", "name": "Mobileno", "autoWidth": true },
                 {

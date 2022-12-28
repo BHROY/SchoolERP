@@ -82,6 +82,7 @@ namespace SchoolManagement.Models
     {
         [Key]
         public int RegistrationID { get; set; }
+        public int ID { get; set; }
 
         [Required(ErrorMessage = "Enter Name")]
         public string Name { get; set; }
@@ -135,6 +136,8 @@ namespace SchoolManagement.Models
         //UserStatus transferred/Passout/Delete
         public int UserStatus { get; set; }
         public string UserStatusRemarks { get; set; }
+        public List<dynamic> ListAllSubjectMarks { get; set; }
+         public int RollNo { get; set; }
     }
 
     [NotMapped]
